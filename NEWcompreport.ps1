@@ -197,7 +197,7 @@ If ($netstat = "True")
 $netrep = "The network test was successful"
 }
  else {
- $netrep = "The network test was successful"
+ $netrep = "FAILED the network test"
     }
 
 #ConvertTo-Html requires an object let's create an object with network test status
