@@ -225,7 +225,7 @@ Start $fpath  # user this command if invoke cmdlet is blocked
 
 
 $fname = (get-item $userpath).name 
-$uri = "https://pctestsandreports.blob.core.windows.net/report/$($fname)?si=report&spr=https&sv=2021-06-08&sr=c&sig=XiFUSwxUblRn%2FAbCEKTiXjkNyvByLUPyr8L4jxMJanA%3D"
+$uri = "https://pctestsxxxxxxxxxxxxxxx.blob.core.windows.net/report/$($fname)?si=report&spr=https&sv="  # This URL has been masked please use your own SAS URL
 $headers = @{
     'x-ms-blob-type' = 'BlockBlob'
 }
