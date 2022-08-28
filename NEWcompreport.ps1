@@ -63,6 +63,10 @@ $form.controls.add($btn)
 $form.ShowDialog()
 
 
+if ([string]::IsNullOrWhiteSpace($DestC))
+{
+    $DestC="localhost"  # If you are aware of public web address that could be pinged from your server then change in from local host to that sitename 
+}
 #Style Sheet for HTML Report including Title
 $header = @"
 <style>
@@ -225,6 +229,8 @@ Start $fpath  # user this command if invoke cmdlet is blocked
 
 
 $fname = (get-item $userpath).name 
+
+#Please use your own SAS URI here
 $uri = "https://pctestsxxxxxxxxxxxxxxx.blob.core.windows.net/report/$($fname)?si=report&spr=https&sv="  # This URL has been masked please use your own SAS URL
 $headers = @{
     'x-ms-blob-type' = 'BlockBlob'
