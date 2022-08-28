@@ -9,4 +9,4 @@ The report extract computer and resource information in a table format and redir
 
 Remember it is not the default Document folder for the publc profile. Therefore, you may have to manually browse documents folder on your profile instead.
 The report also gets redirected to publicly accessible blob storage container. Please generate your own SAS URI and replace the $URI content at line 230 for now
-Duriing the redirection rest method also channges ContentType "text/html" from default "application/octet-stream" it changes the download report behaviour to show directly on the browser. </font-family: Arial, Helvetica, sans-serif></font-size: 12px></body>
+Duriing the redirection rest method also channges ContentType "text/html" from default "application/octet-stream" it changes the download report behaviour to show directly on the browser. </body>
