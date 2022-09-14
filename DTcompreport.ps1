@@ -264,8 +264,12 @@ tr:nth-child(even) {background: #b8d1f3; }
 </style>
 "@
 
-$body = "<h3>List of computer groups</h3>"
-Get-LocalGroup | select name | ConvertTo-Html -Property name -head $head2 -body $body | out-file $userpath -Append
+<#$body = "<h3>List of computer groups</h3>"
+Get-LocalGroup | select name | ConvertTo-Html -Property name -head $head2 -body $body | out-file $userpath -Append#>
+$body = "<h3>List of Remote Desktop Users</h3>"
+Get-LocalGroupMember -name "Remote Desktop Users" | select ObjectClass, name, PrincipalSource | ConvertTo-Html -Property ObjectClass, name, PrincipalSource -head $head2 -body $body | out-file $userpath -Append
+ Get-WMIObject Win32_Group -filter "name='Administrators'"
+
 
 $body = "<h3>Members of local admin groups</h3>"
 Get-LocalGroupMember -SID "S-1-5-32-544" | select ObjectClass, name, PrincipalSource | ConvertTo-Html -Property ObjectClass, name, PrincipalSource -head $head2 -body $body | out-file $userpath -Append
@@ -281,7 +285,7 @@ Start $fpath  # user this command if invoke cmdlet is blocked
 
 
 $fname = (get-item $userpath).name 
-$uri = "https://pctestsandreports.blob.core.windows.net/report/$($fname)?si=report&spr=https&sv=2021-06-08&sr=c&sig=XiFUSwxUblRn%2FAbCEKTiXjkNyvByLUPyr8L4jxMJanA%3D"
+$uri = "https://pcblob.core.windows.net/report/$($fname)?si=report&spr=https&sv=2021-06-08&sr=c&sig=XiFUSwxUblRn%2FAbCEKTiXjkNyvByLUPyr8L4jxMJanA%3D"
 $headers = @{
     'x-ms-blob-type' = 'BlockBlob'
 }
